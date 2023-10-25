@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "rounds",
+  "info": {
+    "singularName": "round",
+    "pluralName": "rounds",
+    "displayName": "round",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "events": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quiz.event"
+    },
+    "lauch_time": {
+      "type": "datetime"
+    },
+    "seen_from": {
+      "type": "datetime"
+    }
+  }
+}
