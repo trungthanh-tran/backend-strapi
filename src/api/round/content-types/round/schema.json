@@ -28,8 +28,9 @@
       "enum": [
         "shiba",
         "pepe",
-        "dog",
-        "flopi"
+        "doge",
+        "flopi",
+        "dog"
       ]
     }
   }
