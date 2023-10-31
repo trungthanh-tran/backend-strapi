@@ -14,7 +14,8 @@
     "@strapi/plugin-users-permissions": "4.14.5",
     "@strapi/strapi": "4.14.5",
     "better-sqlite3": "8.6.0",
-    "ethers": "^6.8.0"
+    "ethers": "^6.8.0",
+    "strapi-provider-upload-image": "file:providers/strapi-provider-upload-img"
   },
   "author": {
     "name": "A Strapi developer"

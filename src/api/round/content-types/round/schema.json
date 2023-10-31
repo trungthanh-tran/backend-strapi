@@ -22,6 +22,15 @@
     },
     "seen_from": {
       "type": "datetime"
+    },
+    "theme": {
+      "type": "enumeration",
+      "enum": [
+        "shiba",
+        "pepe",
+        "dog",
+        "flopi"
+      ]
     }
   }
 }

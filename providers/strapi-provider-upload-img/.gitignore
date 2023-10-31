@@ -69,7 +69,6 @@ $RECYCLE.BIN/
 *.log
 *.sql
 *.sqlite
-*.sqlite3
 
 
 ############################
@@ -77,11 +76,9 @@ $RECYCLE.BIN/
 ############################
 
 *#
-ssl
 .idea
 nbproject
-public/uploads/*
-!public/uploads/.gitkeep
+
 
 ############################
 # Node.js
@@ -92,24 +89,8 @@ lcov.info
 pids
 logs
 results
+build
 node_modules
 .node_history
+package-lock.json
 
-############################
-# Tests
-############################
-
-coverage
-
-############################
-# Strapi
-############################
-
-.env
-license.txt
-exports
-*.cache
-dist
-build
-.strapi-updater.json
-types/generated/*

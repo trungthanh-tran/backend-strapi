@@ -8,7 +8,7 @@
   "attributes": {
     "youtube_id": {
       "type": "string",
-      "regex": "/^((?:https?:)?\\/\\/)?((?:www|m)\\.)?((?:youtube\\.com|youtu.be))(\\/(?:[\\w\\-]+\\?v=|embed\\/|v\\/)?)([A-Za-z0-9_-]{11})(\\S+)?$/"
+      "regex": "^((?:https?:)?\\/\\/)?((?:www|m)\\.)?((?:youtube\\.com|youtu.be))(\\/(?:[\\w\\-]+\\?v=|embed\\/|v\\/)?)([A-Za-z0-9_-]{11})(\\S+)?$"
     },
     "question": {
       "type": "string"

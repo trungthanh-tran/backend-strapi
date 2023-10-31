@@ -1,0 +1,38 @@
+{
+  "name": "strapi-provider-upload-img",
+  "version": "4.14.5",
+  "description": "Local provider for strapi upload",
+  "keywords": [
+    "upload",
+    "strapi"
+  ],
+  "main": "./dist/index.js",
+  "module": "./dist/index.mjs",
+  "source": "./src/index.ts",
+  "types": "./dist/index.d.ts",
+  "files": [
+    "./dist"
+  ],
+  "scripts": {
+    "build": "pack-up build",
+    "clean": "run -T rimraf ./dist",
+    "lint": "run -T eslint .",
+    "prepublishOnly": "yarn clean && yarn build",
+    "test:unit": "run -T jest",
+    "test:unit:watch": "run -T jest --watch",
+    "watch": "pack-up watch"
+  },
+  "dependencies": {
+    "@strapi/utils": "4.14.5",
+    "fs-extra": "10.0.0"
+  },
+  "devDependencies": {
+    "@types/fs-extra": "^11.0.3",
+    "@types/jest": "29.5.2",
+    "typescript": "^5.2.2"
+  },
+  "engines": {
+    "node": ">=16.0.0 <=20.x.x",
+    "npm": ">=6.0.0"
+  }
+}
