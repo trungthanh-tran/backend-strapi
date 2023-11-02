@@ -677,6 +677,70 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiDropListDropList extends Schema.CollectionType {
+  collectionName: 'drop_lists';
+  info: {
+    singularName: 'drop-list';
+    pluralName: 'drop-lists';
+    displayName: 'drop_list';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    drop_users: Attribute.Text & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::drop-list.drop-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::drop-list.drop-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiResultResult extends Schema.CollectionType {
+  collectionName: 'results';
+  info: {
+    singularName: 'result';
+    pluralName: 'results';
+    displayName: 'result';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    timestamp: Attribute.String & Attribute.Required;
+    rewarded: Attribute.Text;
+    partner: Attribute.String & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::result.result',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::result.result',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiRoundRound extends Schema.CollectionType {
   collectionName: 'rounds';
   info: {
@@ -693,6 +757,12 @@ export interface ApiRoundRound extends Schema.CollectionType {
     lauch_time: Attribute.DateTime;
     seen_from: Attribute.DateTime;
     theme: Attribute.Enumeration<['shiba', 'pepe', 'doge', 'flopi', 'dog']>;
+    static_list: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.DefaultTo<false>;
+    prize_number: Attribute.String &
+      Attribute.Required &
+      Attribute.DefaultTo<'5'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -759,6 +829,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::drop-list.drop-list': ApiDropListDropList;
+      'api::result.result': ApiResultResult;
       'api::round.round': ApiRoundRound;
       'api::theme.theme': ApiThemeTheme;
     }

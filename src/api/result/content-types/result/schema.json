@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "results",
+  "info": {
+    "singularName": "result",
+    "pluralName": "results",
+    "displayName": "result",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "timestamp": {
+      "type": "string",
+      "required": true
+    },
+    "rewarded": {
+      "type": "text"
+    },
+    "partner": {
+      "type": "string",
+      "required": true
+    }
+  }
+}

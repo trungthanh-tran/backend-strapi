@@ -1,0 +1,20 @@
+{
+  "kind": "collectionType",
+  "collectionName": "drop_lists",
+  "info": {
+    "singularName": "drop-list",
+    "pluralName": "drop-lists",
+    "displayName": "drop_list",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "drop_users": {
+      "type": "text",
+      "required": true
+    }
+  }
+}

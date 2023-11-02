@@ -32,6 +32,17 @@
         "flopi",
         "dog"
       ]
+    },
+    "static_list": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "prize_number": {
+      "type": "string",
+      "regex": "^\\d+$",
+      "default": "5",
+      "required": true
     }
   }
 }
