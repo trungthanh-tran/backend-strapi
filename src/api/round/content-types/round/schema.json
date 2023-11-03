@@ -43,6 +43,9 @@
       "regex": "^\\d+$",
       "default": "5",
       "required": true
+    },
+    "description": {
+      "type": "string"
     }
   }
 }

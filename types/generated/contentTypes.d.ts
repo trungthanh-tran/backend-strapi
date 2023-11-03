@@ -660,6 +660,21 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    phone: Attribute.String;
+    firstname: Attribute.String;
+    lastname: Attribute.String;
+    books: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::book.book'
+    >;
+    latitude: Attribute.String;
+    longitude: Attribute.String;
+    reservations: Attribute.Relation<
+      'plugin::users-permissions.user',
+      'oneToMany',
+      'api::reservation.reservation'
+    >;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -763,6 +778,7 @@ export interface ApiRoundRound extends Schema.CollectionType {
     prize_number: Attribute.String &
       Attribute.Required &
       Attribute.DefaultTo<'5'>;
+    description: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
