@@ -1,14 +1,12 @@
 {
   "collectionName": "components_quiz_quizzes",
   "info": {
-    "displayName": "Quizz"
+    "displayName": "Quizz",
+    "description": ""
   },
   "options": {},
   "attributes": {
     "title": {
-      "type": "string"
-    },
-    "image": {
       "type": "string"
     }
   }

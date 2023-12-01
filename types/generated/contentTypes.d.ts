@@ -631,7 +631,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
   options: {
     draftAndPublish: false;
-    timestamps: true;
   };
   attributes: {
     username: Attribute.String &
@@ -641,7 +640,6 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
         minLength: 3;
       }>;
     email: Attribute.Email &
-      Attribute.Required &
       Attribute.SetMinMaxLength<{
         minLength: 6;
       }>;
@@ -660,6 +658,8 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       'manyToOne',
       'plugin::users-permissions.role'
     >;
+    address: Attribute.String & Attribute.Required & Attribute.Unique;
+    token: Attribute.String & Attribute.Private;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     createdBy: Attribute.Relation<
@@ -670,6 +670,75 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'plugin::users-permissions.user',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiParticipanParticipan extends Schema.CollectionType {
+  collectionName: 'participans';
+  info: {
+    singularName: 'participan';
+    pluralName: 'participans';
+    displayName: 'participant';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    address: Attribute.Text;
+    campaign_id: Attribute.String;
+    socket_id: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::participan.participan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::participan.participan',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiResultResult extends Schema.CollectionType {
+  collectionName: 'results';
+  info: {
+    singularName: 'result';
+    pluralName: 'results';
+    displayName: 'result';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    campaign_id: Attribute.String;
+    user: Attribute.String;
+    answer: Attribute.String;
+    date: Attribute.String & Attribute.DefaultTo<'${new Date().toISOString()}'>;
+    round_id: Attribute.String;
+    score: Attribute.String & Attribute.Required & Attribute.DefaultTo<'0'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::result.result',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::result.result',
       'oneToOne',
       'admin::user'
     > &
@@ -690,9 +759,14 @@ export interface ApiRoundRound extends Schema.CollectionType {
   };
   attributes: {
     events: Attribute.Component<'quiz.event', true>;
-    lauch_time: Attribute.DateTime;
-    seen_from: Attribute.DateTime;
+    begin_time: Attribute.DateTime;
+    end_time: Attribute.DateTime;
     theme: Attribute.Enumeration<['shiba', 'pepe', 'doge', 'flopi', 'dog']>;
+    description: Attribute.String;
+    enough_participants: Attribute.Boolean &
+      Attribute.Required &
+      Attribute.Private &
+      Attribute.DefaultTo<false>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
@@ -759,6 +833,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::participan.participan': ApiParticipanParticipan;
+      'api::result.result': ApiResultResult;
       'api::round.round': ApiRoundRound;
       'api::theme.theme': ApiThemeTheme;
     }

@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "results",
+  "info": {
+    "singularName": "result",
+    "pluralName": "results",
+    "displayName": "result",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "campaign_id": {
+      "type": "string"
+    },
+    "user": {
+      "type": "string"
+    },
+    "answer": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string",
+      "default": "${new Date().toISOString()}"
+    },
+    "round_id": {
+      "type": "string"
+    },
+    "score": {
+      "type": "string",
+      "required": true,
+      "default": "0"
+    }
+  }
+}

@@ -1,11 +1,9 @@
 'use strict';
 
 /**
- * round service
+ * participan service
  */
 
 const { createCoreService } = require('@strapi/strapi').factories;
 
-
-
-module.exports = createCoreService('api::round.round');
+module.exports = createCoreService('api::participan.participan');

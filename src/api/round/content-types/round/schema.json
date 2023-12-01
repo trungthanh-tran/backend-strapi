@@ -17,10 +17,10 @@
       "repeatable": true,
       "component": "quiz.event"
     },
-    "lauch_time": {
+    "begin_time": {
       "type": "datetime"
     },
-    "seen_from": {
+    "end_time": {
       "type": "datetime"
     },
     "theme": {
@@ -32,6 +32,15 @@
         "flopi",
         "dog"
       ]
+    },
+    "description": {
+      "type": "string"
+    },
+    "enough_participants": {
+      "type": "boolean",
+      "default": false,
+      "required": true,
+      "private": true
     }
   }
 }

@@ -1,0 +1,25 @@
+{
+  "kind": "collectionType",
+  "collectionName": "participans",
+  "info": {
+    "singularName": "participan",
+    "pluralName": "participans",
+    "displayName": "participant",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "address": {
+      "type": "text"
+    },
+    "campaign_id": {
+      "type": "string"
+    },
+    "socket_id": {
+      "type": "string"
+    }
+  }
+}

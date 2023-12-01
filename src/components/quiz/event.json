@@ -17,6 +17,11 @@
       "type": "component",
       "repeatable": true,
       "component": "quiz.quizz"
+    },
+    "correct_answer": {
+      "type": "string",
+      "required": true,
+      "private": true
     }
   }
 }
