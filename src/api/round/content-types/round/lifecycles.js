@@ -35,7 +35,7 @@ module.exports = {
           );
           events.events.forEach((element) => {
             in_query =
-              in_query + "(" + element.id + "," + element.correct_answer + "),";
+              in_query + "('" + element.id + "','" + element.correct_answer + "'),";
           });
           in_query = in_query.slice(0, -1);
           in_query = in_query + ")";
